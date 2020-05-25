@@ -351,7 +351,7 @@
       
         
           
-            <p><strong>作用：</strong> 负责创建对象，使用户无需考虑对象的创建细节，提高系统的<strong>可维护性</strong>，<strong>可扩展性</strong>。</p>
+            <p><strong>作用：</strong> 负责创建对象，使用户无需考虑对象的创建细节，属于<strong>创建型</strong>设计模式</p>
 <h2 id="测试被用到的类"><a href="#测试被用到的类" class="headerlink" title="测试被用到的类"></a>测试被用到的类</h2><p><strong>顶层接口Person类</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顶层接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义的普通方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -430,7 +430,8 @@
 <p>​                当添加一整套产品组（比如联想公司的加入），不需要修改原有代码。实现接口即可。</p>
 <p>​        </p>
 <p>​        出现的问题：</p>
-<p>​                如果当苹果公司加入新产品，比如平板电脑，就回影响整个体系结构，不利于单个产品的更改</p>
+<p>​                1.如果当苹果公司加入新产品，比如平板电脑，就回影响整个体系结构，不利于单个产品的更改</p>
+<p>​                 2.类结构体系复杂。</p>
 <p>​        <strong>抽象工厂模式只适用于一整套产品组的增加，不适用于单个产品的维护</strong></p>
 <h2 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h2><p>简单工厂：</p>
 <p>​        不能算是真正意义上的设计模式，但可以将客户程序从具体类解耦，适合类大量重复的创建。</p>
