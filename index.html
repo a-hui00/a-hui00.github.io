@@ -258,6 +258,235 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿辉">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿辉的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url">设计模式-工厂设计模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-25T08:21:35+08:00">
+                2020-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">java高级</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>作用：</strong> 负责创建对象，使用户无需考虑对象的创建细节，提高系统的<strong>可维护性</strong>，<strong>可扩展性</strong>。</p>
+<h2 id="测试被用到的类"><a href="#测试被用到的类" class="headerlink" title="测试被用到的类"></a>测试被用到的类</h2><p><strong>顶层接口Person类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顶层接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义的普通方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>小米手机实体类实现了接口Phone</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//小米手机实体类实现了接口Phone</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MiPhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小米手机被创建。。。。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>华为手机实体类实现了接口Phone</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//华为手机实体类实现了接口Phone</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HwPhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"华为手机被创建。。。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>苹果手机实体类实现了接口Phone</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//苹果手机实体类实现了接口Phone</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IPhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"苹果手机被创建。。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFactoryPattern</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String Mi = <span class="string">"小米"</span>;</span><br><span class="line">    <span class="keyword">private</span> String HW = <span class="string">"华为"</span>;</span><br><span class="line">    <span class="keyword">private</span> String IPhone = <span class="string">"苹果"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPerson</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(Mi.equals(name))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> MiPhone();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (HW.equals(name))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> HwPhone();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (IPhone.equals(name))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> IPhone();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//都不满足返回null</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试简单工厂</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建对象</span></span><br><span class="line">        SimpleFactoryPattern simpleFactory = <span class="keyword">new</span> SimpleFactoryPattern();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过对象获取实例</span></span><br><span class="line">        Phone mi = simpleFactory.createPhone(<span class="string">"小米"</span>);</span><br><span class="line">        Phone iPhone = simpleFactory.createPhone(<span class="string">"苹果"</span>);</span><br><span class="line">        Phone HW = simpleFactory.createPhone(<span class="string">"华为"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用方法测试</span></span><br><span class="line">        mi.printName();</span><br><span class="line"></span><br><span class="line">        iPhone.printName();</span><br><span class="line"></span><br><span class="line">        HW.printName();</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试结果：</span></span><br><span class="line"></span><br><span class="line">小米手机被创建。。。。</span><br><span class="line">苹果手机被创建。。</span><br><span class="line">华为手机被创建。。。</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong></p>
+<p>​        特点：</p>
+<p>​                在创建对象时，对象的创建过程完全由工厂实现，用户不需要考虑创建细节。</p>
+<p>​        出现问题：</p>
+<p>​                1.当我们想再添加同样的类时，就需要修改工厂内的逻辑，违反了开闭原则，不利于扩展。</p>
+<p>​                2.因为是依据字符串判断，不严谨，容易出现误差。</p>
+<h2 id="方法工厂"><a href="#方法工厂" class="headerlink" title="方法工厂"></a>方法工厂</h2><p><strong>顶层的工厂接口（定义工厂的结构）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最顶层的工厂接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MethodFactoryPattern</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>苹果手机工厂实现了MethodFactoryPattern工厂</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建苹果手机的工厂</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IPhoneFactory</span> <span class="keyword">implements</span> <span class="title">MethodFactoryPattern</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> IPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>小米手机工厂实现了MethodFactoryPattern工厂</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建小米手机的工厂</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MiFactory</span> <span class="keyword">implements</span> <span class="title">MethodFactoryPattern</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//测试方法工厂</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取苹果手机工厂</span></span><br><span class="line">        MethodFactoryPattern iPhoneFactory = <span class="keyword">new</span> IPhoneFactory();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//苹果手机工厂创建苹果手机</span></span><br><span class="line">        Phone iPhone = iPhoneFactory.createPhone();</span><br><span class="line"></span><br><span class="line">        iPhone.printName();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取小米手机工厂</span></span><br><span class="line">        MethodFactoryPattern miFactory = <span class="keyword">new</span> MiFactory();</span><br><span class="line">        <span class="comment">//小米手机工厂创建小米手机</span></span><br><span class="line">        Phone miPhone = miFactory.createPhone();</span><br><span class="line"></span><br><span class="line">        miPhone.printName();</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试结果</span></span><br><span class="line">苹果手机被创建。。</span><br><span class="line">小米手机被创建。。。。</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong></p>
+<p>​        特点：方法工厂模式中对工厂也定义了抽象，再添加新的产品时，已经不需要去修改工厂，而是直                    接添加相应的工厂，再去添加产品。遵守了开闭原则，有利于程序的扩展。</p>
+<p>​        问题：类结构体系相对复杂，比较难以理解。</p>
+<h2 id="测试抽象工厂添加一套电脑产品测试类"><a href="#测试抽象工厂添加一套电脑产品测试类" class="headerlink" title="测试抽象工厂添加一套电脑产品测试类"></a>测试抽象工厂添加一套电脑产品测试类</h2><p><strong>电脑产品的顶层抽象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//电脑产品的顶层抽象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>小米电脑实体类实现了Computer接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//小米电脑实体类实现了Computer接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MiComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小米电脑。。。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>苹果电脑实体类实现了Computer接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//苹果电脑实体类实现了Computer接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppleComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"苹果电脑创建。。。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>华为电脑实体类实现了Computer接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//华为电脑实体类实现了Computer接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HWComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"小米电脑。。。"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><p><strong>抽象工厂的顶层接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AbstractFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建手机</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建电脑</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>苹果工厂实现了AbstractFactory</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;苹果工厂实现了AbstractFactory</span><br><span class="line">public class AppleFactory implements AbstractFactory&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Phone createPhone() &#123;</span><br><span class="line">        return new IPhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Computer createComputer() &#123;</span><br><span class="line">        return new AppleComputer();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>小米工厂实现了AbstractFactory</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;小米公司实现了AbstractFactory</span><br><span class="line">public class MiFactory implements AbstractFactory&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Phone createPhone() &#123;</span><br><span class="line">        return new MiPhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Computer createComputer() &#123;</span><br><span class="line">        return new MiComputer();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>华为公司实现了AbstractFactory</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;华为公司实现了AbstractFactory</span><br><span class="line">public class HWFactory implements AbstractFactory&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Phone createPhone() &#123;</span><br><span class="line">        return new HwPhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Computer createComputer() &#123;</span><br><span class="line">        return new HWComputer();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试抽象工厂</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果想买苹果手机</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取苹果公司</span></span><br><span class="line">        AbstractFactory appleFactory = <span class="keyword">new</span> AppleFactory();</span><br><span class="line">        <span class="comment">//苹果公司生产苹果手机</span></span><br><span class="line">        Phone iPhone = appleFactory.createPhone();</span><br><span class="line"></span><br><span class="line">        iPhone.printName();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果想小米电脑</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//获取小米公司</span></span><br><span class="line">        AbstractFactory miFactory = <span class="keyword">new</span> MiFactory();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//小米公司生产小米电脑</span></span><br><span class="line">        Computer miComputer = miFactory.createComputer();</span><br><span class="line"></span><br><span class="line">        miComputer.printName();</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试结果</span></span><br><span class="line">苹果手机被创建。。</span><br><span class="line">小米电脑。。。</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>总结</strong></p>
+<p>​        特点：</p>
+<p>​                将一整个品牌交由工厂管理，使产品的创建隔离。</p>
+<p>​                当添加一整套产品组（比如联想公司的加入），不需要修改原有代码。实现接口即可。</p>
+<p>​        </p>
+<p>​        出现的问题：</p>
+<p>​                如果当苹果公司加入新产品，比如平板电脑，就回影响整个体系结构，不利于单个产品的更改</p>
+<p>​        <strong>抽象工厂模式只适用于一整套产品组的增加，不适用于单个产品的维护</strong></p>
+<h2 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h2><p>简单工厂：</p>
+<p>​        不能算是真正意义上的设计模式，但可以将客户程序从具体类解耦，适合类大量重复的创建。</p>
+<p>工厂方法：</p>
+<p>​        使用继承，把对象的创建委托给子类，由子类来实现创建方法，适用于产品数量不稳定。</p>
+<p>抽象工厂：</p>
+<p>​        可以说是将整个产品组看做成一个产品，适用于群体类型结构。</p>
+<p>工厂模式可以帮助我们针对<strong>抽象/接口编程</strong>，而不是针对具体类编程，在不同的场景下按具体情况来使用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -859,7 +1088,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -942,6 +1171,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
